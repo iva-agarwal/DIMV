@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════
+   MARTIAN ID — DESIGN SYSTEM v2.0
+   Award-Winning Editorial Luxury Cyberpunk
+   ═══════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Syne', 'Space Grotesk', sans-serif;
+    --font-telemetry: 'Orbitron', monospace;
+
+    --mars: #FF4B2B;
+    --amber: #FF8C00;
+    --gold: #FFD060;
+    --obsidian: #050507;
+    --glass: rgba(255,255,255,0.05);
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html, body {
+    background: #050507;
+    color: #E8E8EE;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(255, 75, 43, 0.35);
+    color: #fff;
+  }
+}
+
+/* ─── Typography Utilities ─── */
+.font-mono-tech {
+  font-family: 'JetBrains Mono', 'Space Mono', monospace;
+}
+.font-display-tech {
+  font-family: 'Syne', sans-serif;
+}
+.font-telemetry {
+  font-family: 'Orbitron', monospace;
+}
+
+/* ─── 3D Card Mechanics ─── */
+.perspective-scene {
+  perspective: 1400px;
+  perspective-origin: 50% 45%;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* ─── Grain Film Overlay ─── */
+.film-grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
+}
+
+/* ─── Glass Morphism Card Base ─── */
+.card-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.075) 0%,
+    rgba(255, 255, 255, 0.025) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  backdrop-filter: blur(28px) saturate(140%);
+  -webkit-backdrop-filter: blur(28px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+/* ─── Iridescent Holographic Foil ─── */
+.holo-foil {
+  background: linear-gradient(
+    105deg,
+    transparent 10%,
+    rgba(255, 0, 128, 0.12) 22%,
+    rgba(255, 140, 0, 0.2) 30%,
+    rgba(255, 215, 0, 0.18) 38%,
+    rgba(0, 240, 100, 0.14) 46%,
+    rgba(0, 200, 255, 0.2) 56%,
+    rgba(100, 80, 255, 0.18) 66%,
+    rgba(255, 0, 200, 0.12) 76%,
+    transparent 88%
+  );
+  background-size: 200% 200%;
+  mix-blend-mode: color-dodge;
+  pointer-events: none;
+}
+
+/* ─── Specular Edge Rim Light ─── */
+.card-rim {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    transparent 25%,
+    transparent 75%,
+    rgba(255, 75, 43, 0.18) 100%
+  );
+  pointer-events: none;
+}
+
+/* ─── Elevation Shadow ─── */
+.card-shadow {
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.85)) drop-shadow(0 20px 40px rgba(255,75,43,0.15));
+}
+
+/* ─── Scanlines on card ─── */
+.scanlines-card {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.12) 2px,
+    rgba(0, 0, 0, 0.12) 4px
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* ─── Floating Dock ─── */
+.dock-blur {
+  background: rgba(8, 8, 14, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Input Ghost Pill ─── */
+.input-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #E8E8EE;
+  outline: none;
+  font-family: 'JetBrains Mono', monospace;
+  transition: border-color 0.2s, background 0.2s;
+}
+.input-ghost:focus {
+  background: rgba(255, 75, 43, 0.06);
+  border-color: rgba(255, 75, 43, 0.5);
+}
+.input-ghost::placeholder {
+  color: rgba(255,255,255,0.22);
+}
+
+/* ─── Hologram Rotating Seal ─── */
+@keyframes sealRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.seal-spin {
+  animation: sealRotate 18s linear infinite;
+}
+.seal-spin-reverse {
+  animation: sealRotate 24s linear infinite reverse;
+}
+
+/* ─── Pulse glow ─── */
+@keyframes marsGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+.mars-pulse {
+  animation: marsGlow 2.4s ease-in-out infinite;
+}
+
+/* ─── Fade in ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeup {
+  animation: fadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Dock slide up ─── */
+@keyframes dockSlideUp {
+  from { opacity: 0; transform: translateY(100%) translateX(-50%); }
+  to { opacity: 1; transform: translateY(0) translateX(-50%); }
+}
+.animate-dock {
+  animation: dockSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Photo Upload dashed border ─── */
+.upload-zone {
+  background: rgba(255,255,255,0.02);
+  border: 1.5px dashed rgba(255,255,255,0.14);
+  transition: border-color 0.2s, background 0.2s;
+}
+.upload-zone:hover {
+  border-color: rgba(255, 75, 43, 0.5);
+  background: rgba(255, 75, 43, 0.04);
+}
+
+/* ─── Custom scrollbar ─── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #222232; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #FF4B2B; }
+
+/* ─── Date Input Dark Scheme ─── */
+input[type="date"] { color-scheme: dark; }
+
+/* ─── Space Soundwave Equalizer Bars ─── */
+@keyframes eqBounce1 {
+  0%, 100% { height: 4px; }
+  50% { height: 15px; }
+}
+@keyframes eqBounce2 {
+  0%, 100% { height: 13px; }
+  50% { height: 5px; }
+}
+@keyframes eqBounce3 {
+  0%, 100% { height: 6px; }
+  50% { height: 17px; }
+}
+@keyframes eqBounce4 {
+  0%, 100% { height: 15px; }
+  50% { height: 4px; }
+}
+.eq-bar-1 { animation: eqBounce1 1.4s ease-in-out infinite; }
+.eq-bar-2 { animation: eqBounce2 1.0s ease-in-out infinite; }
+.eq-bar-3 { animation: eqBounce3 1.6s ease-in-out infinite; }
+.eq-bar-4 { animation: eqBounce4 1.1s ease-in-out infinite; }
