@@ -1,99 +1,54 @@
-# Martian ID - Interplanetary Identity Card Generator
+# 🔴 MARTIAN ID // Dept. of Interplanetary Motor Vehicles
 
-A futuristic web application that calculates your age across different planets in the solar system and generates a stunning holographic Martian ID card. Built with React, Vite, Three.js, and Tailwind CSS.
+	⁠*"How old are you actually?"*  
+	⁠A hyper-aesthetic 3D web experience that converts your Earth age into interplanetary years and mints an interactive holographic driver's permit for Mars Colony 01.
 
-## Features
+---
 
-- **Planetary Age Calculator**: Calculate your age on Mercury, Venus, Earth, Mars, Jupiter, and Saturn based on your Earth birth date
-- **3D Holographic ID Card**: Interactive 3D card with tilt effects, holographic sheen, and rotating seal
-- **Instagram/TikTok Story Export**: Generate 9:16 HD story cards for social media sharing
-- **Live Countdown Timer**: Real-time countdown to your next Martian birthday
-- **4 Avatar Presets**: Choose from cyberpunk-styled avatar presets
-- **Immersive Experience**: Cosmic particle background, hyperdrive warp transition, and ambient space music
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
+## ⚡ The Concept
 
-## Tech Stack
+Earth takes 365.25 days to complete an orbit around the Sun. Mars takes 686.98.  
+That means:
+•⁠  ⁠A 24-year-old on Earth is *12.7 years old on Mars* (legally a teenager again).
+•⁠  ⁠A 30-year-old on Earth is *15.9*.
+•⁠  ⁠A 60-year-old on Earth is *31.9*.
 
-- **React 19** - UI library
-- **Vite 8** - Build tool and dev server
-- **Three.js** - 3D graphics and particle effects
-- **Tailwind CSS 4** - Styling
-- **Lucide React** - Icon library
-- **Canvas Confetti** - Celebration effects
-- **html-to-image** - Image export functionality
+*MARTIAN ID* takes your birth date and mints a tactile, holographic 3D identity card rendered inside a full WebGL studio environment.
 
-## Getting Started
+---
 
-### Prerequisites
+## ✨ Features
 
-- Node.js 18+ installed
+•⁠  ⁠*Cinematic 2-Phase UX:* Starts on an ultra-minimalist monolithic terminal, triggers a camera warp jump, and resolves into an interactive 3D spotlight.
+•⁠  ⁠*Three.js Physical Card:* Modeled with accurate credit card aspect ratios, smoked acrylic polycarbonate transmission, bevels, and procedural dynamic canvas textures.
+•⁠  ⁠*Dynamic Holographic Sheen:* Iridescent foil reflections that shift and catch specular light as you tilt the card with your cursor or mobile gyroscope.
+•⁠  ⁠*Procedural Soundscape:* Zero heavy MP3 assets—audio feedback (clicks, hums, and deep-space transition whooshes) is synthesized natively via the Web Audio API.
+•⁠  ⁠*9:16 Social Export Engine:* Generates an editorial 1080×1920 Instagram/TikTok story card with one click using offscreen canvas composite rendering.
 
-### Installation
+---
 
-1. Clone the repository
-2. Install dependencies:
-```bash
-npm install
-```
+## 🛠️ Tech Stack
 
-3. Start the development server:
-```bash
-npm run dev
-```
+•⁠  ⁠*Graphics:* [Three.js](https://threejs.org/) (WebGL / Custom Shaders / ⁠ MeshPhysicalMaterial ⁠)
+•⁠  ⁠*Animation & Physics:* Lerped vector interpolation + Spring physics
+•⁠  ⁠*Audio:* Web Audio API (Synthesized oscillators & noise nodes)
+•⁠  ⁠*Styling:* Tailwind CSS + Vanilla CSS Grid/Flexbox
+•⁠  ⁠*Export:* HTML5 Canvas API
 
-4. Open your browser to `http://localhost:5173`
+---
 
-## Usage
+## 🚀 Quickstart
 
-1. **Enter Your Details**: Input your name and Earth date of birth
-2. **Choose Avatar**: Select from 4 cyberpunk avatar presets
-3. **Generate ID**: Click "TRANSMIT & MINT PASS" to generate your Martian ID
-4. **Explore**: 
-   - Hover/drag the card to see 3D tilt effects
-   - Click to flip between front and back of the card
-   - View planetary age calculations on the back
-5. **Export Story**: Click the STORY button to generate a 9:16 Instagram/TikTok story card
-6. **Edit Details**: Use the EDIT DETAILS button to update your information
-
-## Build for Production
+Clone the repo and run it locally in seconds:
 
 ```bash
-npm run build
-```
+# Clone repository
+git clone [https://github.com/your-username/martian-id.git](https://github.com/your-username/martian-id.git)
 
-The built files will be in the `dist` directory.
+# Navigate into directory
+cd martian-id
 
-## Project Structure
-
-```
-src/
-├── components/
-│   ├── CosmicBackground.jsx    # Three.js particle effects and warp animation
-│   ├── MartianCard.jsx         # 3D holographic ID card component
-│   ├── Phase1Intake.jsx        # Initial form for user input
-│   ├── Phase2Dock.jsx          # Bottom dock controls
-│   ├── StoryExportModal.jsx    # Story card export modal
-│   ├── DarkDatePicker.jsx      # Custom date picker with portal dropdown
-│   └── ...
-├── utils/
-│   ├── avatars.js              # Avatar preset data
-│   ├── audio.js                # Sound effects
-│   └── planetaryMath.js        # Planetary age calculations
-├── App.jsx                     # Main application component
-└── main.jsx                    # Entry point
-```
-
-## Planetary Age Calculations
-
-The app calculates your age on each planet based on their orbital periods relative to Earth:
-
-- Mercury: 0.24 Earth years
-- Venus: 0.62 Earth years
-- Earth: 1.00 Earth years
-- Mars: 1.88 Earth years
-- Jupiter: 11.86 Earth years
-- Saturn: 29.46 Earth years
-
-## License
-
-MIT
+# Serve with any static server or Vite
+npx serve .
+# or
+npm install && npm run dev
