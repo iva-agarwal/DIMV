@@ -19,6 +19,7 @@ export default function DarkDatePicker({
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0, width: 0 });
   const containerRef = useRef(null);
   const inputRef = useRef(null);
+  const dropdownRef = useRef(null);
   const yearScrollRef = useRef(null);
 
   // Parse current value or fallback
@@ -52,7 +53,8 @@ export default function DarkDatePicker({
   // Click outside to close calendar
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
+      if (containerRef.current && !containerRef.current.contains(e.target) &&
+          dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         if (isOpen) {
           sfx.modalClose();
           setIsOpen(false);
@@ -215,6 +217,7 @@ export default function DarkDatePicker({
       {isOpen &&
         createPortal(
           <div
+            ref={dropdownRef}
             className="fixed z-[100] rounded-2xl bg-[#0c0c16]/98 border border-white/15 p-3 sm:p-4 shadow-[0_20px_50px_rgba(0,0,0,0.95)] backdrop-blur-2xl animate-fadeup select-none"
             style={{
               top: `${dropdownPosition.top}px`,
